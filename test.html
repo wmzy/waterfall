@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>waterfall</title>
+<style>
+	.block {
+		width: 300px;
+		float: left;
+		border: 1px dashed rgb(79,129,189);
+	}
+</style>
+<body>
+
+<!-- Header -->
+<header id="header">
+	<h1>waterfall</h1>
+</header>
+
+<!-- Content -->
+<section id="wrapper">
+<div id="container">
+	<div class="block">
+	</div>
+	<div class="block">
+	</div>
+	<div class="block">
+	</div>
+	<div class="block">
+	</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+</footer>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="jquery-waterfall.js"></script>
+<script>
+$(function() {
+	$('#container').waterfall(function () {
+		var elems = [];
+		for (var i = 0; i < 30; ++i) {
+			elems.push($("<li>").css({
+				width: "280px",
+				height: Math.floor(100+Math.random()*(200)) + "px",
+				display: "block",
+				border: "1px dashed rgb(7,79,200)",
+				margin: "auto"
+			}));
+		}
+		return elems;
+	});
+	
+	alert("继续加载");
+	
+	$('#container').waterfall(function () {
+		var elems = [];
+		for (var i = 0; i < 30; ++i) {
+			elems.push($("<li>").css({
+				width: "280px",
+				height: Math.floor(100+Math.random()*(200)) + "px",
+				display: "block",
+				border: "1px dashed rgb(0,9,2)",
+				margin: "auto"
+			}));
+		}
+		return elems;
+	});
+});
+</script>
+</body>
+</html>
